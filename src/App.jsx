@@ -1,0 +1,3 @@
+import {useEffect} from 'react';import Header from './components/Header.jsx';import Hero from './components/Hero.jsx';import TrustStats from './components/TrustStats.jsx';import Solutions from './components/Solutions.jsx';import CTA from './components/CTA.jsx';import Footer from './components/Footer.jsx';
+export default function App(){useEffect(()=>{const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&(e.target.classList.add('in'),io.unobserve(e.target))),{threshold:.15});document.querySelectorAll('.rv').forEach(n=>io.observe(n));return()=>io.disconnect()},[]);
+return(<><Header/><main><Hero/><TrustStats/><Solutions/></main><CTA/><Footer/></>)}
