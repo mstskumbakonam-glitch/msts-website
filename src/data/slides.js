@@ -1,5 +1,5 @@
 export const slides=[
-{k:'dome',h:['Smart security.','Powerful protection.'],p:'Advanced CCTV and security solutions built and installed by MSTS.',cta:'Explore solutions'},
-{k:'ai',h:['Intelligent surveillance.','Real-time visibility.'],p:'AI surveillance, crowd management and remote monitoring.',cta:'See AI security'},
-{k:'bullet',h:['Cameras for every gate,','wall and corridor.'],p:'ARAN HD and IP camera range with NVR recording.',cta:'View ARAN products'},
-{k:'net',h:['Complete security.','One integrated solution.'],p:'CCTV, fire alarm, access control and networking, managed together.',cta:'Talk to our team'}];
+{k:'dome',e:'Security & Technology',h:['Integrated Security &','Technology Solutions'],p:'Smart security, surveillance and technology infrastructure solutions for institutions, businesses and public facilities.',cta:'Explore solutions'},
+{k:'ai',e:'Surveillance & Monitoring',h:['Intelligent surveillance.','Real-time visibility.'],p:'AI surveillance, crowd management and remote monitoring.',cta:'Explore solutions'},
+{k:'bullet',e:'CCTV Systems',h:['Cameras for every gate,','wall and corridor.'],p:'HD and IP camera systems with NVR recording, designed and installed by MSTS.',cta:'Explore solutions'},
+{k:'net',e:'System Integration',h:['Complete security.','One integrated solution.'],p:'CCTV, fire alarm, access control and networking, managed together.',cta:'Explore solutions'}];
