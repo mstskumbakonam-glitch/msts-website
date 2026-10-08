@@ -39,10 +39,12 @@
   --radius:6px;
 }
 
-/* Company-name typeface (header lockup only). Feena Casual ships one weight: Regular 400, no italic. */
+/* Company-name typeface (header lockup only).
+   Poiret One — SIL Open Font License 1.1 (web embedding permitted), see /fonts/OFL-PoiretOne.txt.
+   Self-hosted Latin subset; one weight: Regular 400, no italic. */
 @font-face{
-  font-family:"FeenaCasual";
-  src:url("/fonts/feenacasual.ttf") format("truetype");
+  font-family:"Poiret One";
+  src:url("/fonts/poiret-one-latin.woff2") format("woff2");
   font-weight:400;
   font-style:normal;
   font-display:swap;
@@ -92,8 +94,8 @@ img{max-width:100%}
 .brand img{flex:none}
 /* Company name — thin geometric type in the logo wordmark's brown */
 .co{font-family:Sora,Inter,sans-serif;font-weight:300;letter-spacing:.05em;color:var(--msts-wordmark);white-space:nowrap}
-/* Header lockup: FeenaCasual in the logo wordmark brown. Small x-height, so it runs a little larger than body type. */
-.brand .co{font-family:"FeenaCasual",sans-serif;font-weight:400;font-size:clamp(19px,1.65vw,23px);letter-spacing:.03em;line-height:1.1}
+/* Header lockup: Poiret One in the logo wordmark brown. Small x-height, so it runs a little larger than body type. */
+.brand .co{font-family:"Poiret One","Josefin Sans","Century Gothic",sans-serif;font-weight:400;font-size:clamp(19px,1.65vw,23px);letter-spacing:.03em;line-height:1.1}
 nav{display:flex;gap:2px}.ni{position:relative}
 .ni>a{display:block;padding:10px 11px;font-size:12px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--msts-heading);position:relative;transition:color .2s}
 .ni>a::after{content:"";position:absolute;left:11px;right:11px;bottom:4px;height:2px;background:var(--msts-blue-dark);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
