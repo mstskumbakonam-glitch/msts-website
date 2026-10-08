@@ -39,6 +39,15 @@
   --radius:6px;
 }
 
+/* Company-name typeface (header lockup only). Feena Casual ships one weight: Regular 400, no italic. */
+@font-face{
+  font-family:"FeenaCasual";
+  src:url("/fonts/feenacasual.ttf") format("truetype");
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+}
+
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth;scroll-padding-top:84px}
 body{font:16px/1.65 Inter,system-ui,sans-serif;color:var(--msts-text);background:var(--msts-white);overflow-x:hidden}
@@ -83,7 +92,8 @@ img{max-width:100%}
 .brand img{flex:none}
 /* Company name — thin geometric type in the logo wordmark's brown */
 .co{font-family:Sora,Inter,sans-serif;font-weight:300;letter-spacing:.05em;color:var(--msts-wordmark);white-space:nowrap}
-.brand .co{font-size:clamp(14px,1.25vw,17px);line-height:1.25}
+/* Header lockup: FeenaCasual in the logo wordmark brown. Small x-height, so it runs a little larger than body type. */
+.brand .co{font-family:"FeenaCasual",sans-serif;font-weight:400;font-size:clamp(19px,1.65vw,23px);letter-spacing:.03em;line-height:1.1}
 nav{display:flex;gap:2px}.ni{position:relative}
 .ni>a{display:block;padding:10px 11px;font-size:12px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--msts-heading);position:relative;transition:color .2s}
 .ni>a::after{content:"";position:absolute;left:11px;right:11px;bottom:4px;height:2px;background:var(--msts-blue-dark);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
@@ -250,7 +260,7 @@ nav{display:flex;gap:2px}.ni{position:relative}
   nav .ni>a{padding:14px 0;border-bottom:1px solid var(--msts-border)}
   .ni>a::after{left:0;right:auto;width:24px;bottom:-1px}
   .dd{display:none}
-  .brand .co{font-size:16px}
+  .brand .co{font-size:21px}
 }
 @media(max-width:1024px){
   .cards{grid-template-columns:repeat(2,1fr)}
@@ -291,10 +301,12 @@ nav{display:flex;gap:2px}.ni{position:relative}
   .brand{gap:8px;min-width:0}
   .brand img{width:46px;height:46px}
   /* Company name wraps to two lines on phones instead of overflowing */
-  .brand .co{white-space:normal;font-size:13.5px;letter-spacing:.04em;max-width:190px}
+  /* Phones: break deliberately as 'Micro Solution / Technology Pvt Ltd' */
+  .brand .co{font-size:18px;letter-spacing:.02em;line-height:1.05}
+  .brand .co-l2{display:block}
   .cert-empty{flex-direction:column;align-items:flex-start;padding:24px}
 }
-@media(max-width:360px){.wrap{padding:0 16px}.slide{padding-left:16px;padding-right:16px}.btn{padding:13px 16px}.brand .co{font-size:12.5px;max-width:160px}}
+@media(max-width:360px){.wrap{padding:0 16px}.slide{padding-left:16px;padding-right:16px}.btn{padding:13px 16px}.brand .co{font-size:16.5px}}
 
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
