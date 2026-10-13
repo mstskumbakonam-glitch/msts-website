@@ -111,60 +111,62 @@ nav{display:flex;gap:2px}.ni{position:relative}
 .hdr.open .burger i:nth-child(2){opacity:0}
 .hdr.open .burger i:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
 
-/* ---------- Hero (white) ---------- */
+/* ---------- Hero (white, single message + CCTV scene) ---------- */
 .hero{position:relative;background:var(--msts-white);color:var(--msts-text);overflow:hidden;border-bottom:1px solid var(--msts-border)}
-.grid-bg{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(97,165,204,.13) 1px,transparent 1px),linear-gradient(90deg,rgba(97,165,204,.13) 1px,transparent 1px);background-size:56px 56px;animation:grid 18s linear infinite;mask-image:radial-gradient(ellipse at 72% 50%,#000 10%,transparent 62%);-webkit-mask-image:radial-gradient(ellipse at 72% 50%,#000 10%,transparent 62%)}
+.grid-bg{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(97,165,204,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(97,165,204,.12) 1px,transparent 1px);background-size:56px 56px;animation:grid 18s linear infinite;mask-image:radial-gradient(ellipse at 74% 55%,#000 10%,transparent 62%);-webkit-mask-image:radial-gradient(ellipse at 74% 55%,#000 10%,transparent 62%)}
 @keyframes grid{to{background-position:56px 56px}}
-.glow{position:absolute;pointer-events:none;width:720px;height:720px;right:-120px;top:50%;transform:translateY(-50%);background:radial-gradient(circle,rgba(97,165,204,.16) 0,rgba(97,165,204,0) 62%);animation:glow 8s ease-in-out infinite}
+.glow{position:absolute;pointer-events:none;width:760px;height:760px;right:-160px;top:52%;transform:translateY(-50%);background:radial-gradient(circle,rgba(97,165,204,.15) 0,rgba(97,165,204,0) 62%);animation:glow 8s ease-in-out infinite}
 @keyframes glow{50%{opacity:.6}}
-/* Slides share one grid cell so the hero grows to fit its tallest slide */
-.hero-in{position:relative;display:grid;min-height:min(100svh,920px)}
-.slide{grid-area:1/1;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:32px;width:100%;max-width:1240px;margin:auto;padding:128px 24px 132px;transition:opacity .8s var(--ease),transform .8s var(--ease),visibility .8s}
-.slide.on{opacity:1;transform:none;visibility:visible}
-.slide.next{opacity:0;transform:translateX(48px);pointer-events:none;visibility:hidden}
-.slide.out{opacity:0;transform:translateX(-48px);pointer-events:none;visibility:hidden}
-.txt h1,.txt h2{margin-top:22px;font-size:clamp(32px,4.4vw,56px);line-height:1.07;font-weight:600;letter-spacing:-.022em;color:var(--msts-heading)}
-.txt h1 em,.txt h2 em{font-style:normal;color:var(--msts-blue-dark)}
-.txt p{max-width:520px;margin:22px 0 34px;color:var(--msts-text-secondary);font-size:18px}
+.hero-grid{position:relative;display:grid;grid-template-columns:1fr 1.08fr;align-items:center;gap:40px;min-height:min(100svh,880px);padding-top:116px;padding-bottom:72px}
+.txt h1{margin-top:22px;font-size:clamp(34px,4.5vw,58px);line-height:1.06;font-weight:600;letter-spacing:-.025em;color:var(--msts-heading)}
+.txt h1 em{font-style:normal;color:var(--msts-blue-dark)}
+.txt p{max-width:500px;margin:22px 0 34px;color:var(--msts-text-secondary);font-size:18px}
 .btns{display:flex;gap:12px;flex-wrap:wrap}
-.a1,.a2,.a3,.a0{opacity:0}
-.slide.on .a0{animation:up .8s .05s var(--ease) forwards}
-.slide.on .a1{animation:up .8s .15s var(--ease) forwards}
-.slide.on .a2{animation:up .8s .3s var(--ease) forwards}
-.slide.on .a3{animation:up .8s .45s var(--ease) forwards}
+.svc{list-style:none;padding:0;margin-top:36px;display:flex;flex-wrap:wrap;gap:8px 22px;padding-top:22px;border-top:1px solid var(--msts-border);max-width:500px}
+.svc li{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:500;color:var(--msts-heading)}
+.svc li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--msts-green);flex:none}
+.a0,.a1,.a2,.a3,.a4,.a-viz{opacity:0}
+.hero .a0{animation:up .8s .05s var(--ease) forwards}
+.hero .a1{animation:up .8s .15s var(--ease) forwards}
+.hero .a2{animation:up .8s .3s var(--ease) forwards}
+.hero .a3{animation:up .8s .45s var(--ease) forwards}
+.hero .a4{animation:up .8s .6s var(--ease) forwards}
+.hero .a-viz{animation:upv 1s .25s var(--ease) forwards}
 @keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
-.viz{transition:transform .8s var(--ease);transform:translateX(32px)}.slide.on .viz{transform:none}
-.vis{width:100%;max-width:520px;margin:auto;display:block;overflow:visible}
+@keyframes upv{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:none}}
 
-/* Hero visual parts (SVG). transform-box:view-box keeps pivots on the 220,220 centre */
-.vis .rot{transform-box:view-box;transform-origin:220px 220px}
-.vis .ring-a{animation:spin 60s linear infinite}
-.vis .ring-b{animation:spin 90s linear infinite reverse}
-.vis .radar{animation:spin 7s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-.vis .flow{stroke-dasharray:3 7;animation:fw 1.8s linear infinite}
-@keyframes fw{to{stroke-dashoffset:-20}}
-.vis .halo{transform-box:fill-box;transform-origin:center;animation:halo 2.8s var(--ease) infinite}
-@keyframes halo{0%{transform:scale(1);opacity:.55}100%{transform:scale(3);opacity:0}}
-.vis .n2 .halo{animation-delay:-.7s}.vis .n3 .halo{animation-delay:-1.4s}.vis .n4 .halo{animation-delay:-2.1s}
-.vis .blink{animation:blink 1.6s steps(1) infinite}@keyframes blink{50%{opacity:.15}}
-.vis .scan{animation:scan 3.6s ease-in-out infinite alternate}@keyframes scan{to{transform:translateY(134px)}}
-.vis .sig rect{transform-box:fill-box;transform-origin:bottom;animation:sig 2.4s ease-in-out infinite}
-.vis .sig rect:nth-child(2){animation-delay:.2s}.vis .sig rect:nth-child(3){animation-delay:.4s}.vis .sig rect:nth-child(4){animation-delay:.6s}
-@keyframes sig{50%{transform:scaleY(.55)}}
-.vis .float{animation:fl 6s ease-in-out infinite}@keyframes fl{50%{transform:translateY(-6px)}}
-.vis .lab{font:500 10px Sora,Inter,sans-serif;letter-spacing:.14em}
+/* CCTV scene */
+.cam-stage{position:relative;width:100%;max-width:600px;margin-left:auto;aspect-ratio:560/480}
+.cam-svg{position:absolute;inset:0;width:100%;height:100%;overflow:hidden}
+.cam-svg .pan{transform-box:view-box;transform-origin:440px 100px;animation:pan 9s ease-in-out infinite}
+@keyframes pan{0%,100%{transform:rotate(-6deg)}42%,58%{transform:rotate(7deg)}}
+.cam-svg .cone{animation:cone 4.5s ease-in-out infinite}@keyframes cone{50%{opacity:.7}}
+.cam-svg .flow{animation:fw 1.6s linear infinite}@keyframes fw{to{stroke-dashoffset:-20}}
+.cam-svg .blink,.feed .live i{animation:blink 1.4s steps(1) infinite}@keyframes blink{50%{opacity:.15}}
+.cam-svg .glint{animation:glint 4s ease-in-out infinite}@keyframes glint{0%,100%{opacity:.85}50%{opacity:.3}}
+.cam-svg .walker{animation:walk 9s ease-in-out infinite}@keyframes walk{0%,100%{transform:translateX(-36px)}50%{transform:translateX(52px)}}
+.cam-svg .det{animation:det 1.2s steps(1) infinite}@keyframes det{50%{stroke-opacity:.45}}
+.cam-svg .lab,.feed{font-family:Sora,Inter,sans-serif}
+.cam-svg .lab{font-size:8.5px;font-weight:600;letter-spacing:.12em}
 
-/* Carousel controls */
-.ctrl{position:absolute;bottom:34px;left:0;right:0;max-width:1240px;margin:auto;padding:0 24px;display:flex;align-items:center;gap:14px;z-index:5}
-.ctrl>button{width:42px;height:42px;border-radius:50%;border:1px solid var(--msts-border-strong);background:#fff;color:var(--msts-heading);font-size:20px;line-height:1;cursor:pointer;transition:.25s}
-.ctrl>button:hover{border-color:var(--msts-blue-dark);color:#fff;background:var(--msts-blue-dark)}
-.dots{display:flex;gap:10px}
-.dots button{width:32px;height:18px;background:none;border:0;cursor:pointer;position:relative;padding:0;transition:width .5s var(--ease)}
-.dots button::before{content:"";position:absolute;left:0;right:0;top:8px;height:2px;background:var(--msts-border-strong)}
-.dots button.act{width:90px}
-.fill{position:absolute;left:0;right:0;top:8px;height:2px;background:var(--msts-blue-dark);transform-origin:left;transform:scaleX(0)}
-.num{margin-left:auto;font:400 12px Sora,Inter,sans-serif;letter-spacing:.16em;color:var(--msts-text-secondary)}
+/* Floating UI cards */
+.chip{position:absolute;top:6%;left:2%;display:flex;align-items:center;gap:8px;padding:9px 14px;background:#fff;border:1px solid var(--msts-border);border-radius:999px;box-shadow:var(--shadow-md);font:500 12px Sora,Inter,sans-serif;letter-spacing:.04em;color:var(--msts-heading)}
+.chip i{width:8px;height:8px;border-radius:50%;background:var(--msts-green);box-shadow:0 0 0 4px var(--msts-green-light)}
+.feed{position:absolute;right:4%;bottom:-2%;width:48%;min-width:220px;background:#fff;border:1px solid var(--msts-border);border-radius:var(--radius);box-shadow:0 24px 48px -24px rgba(14,47,68,.45);overflow:hidden;font-size:11px;color:var(--msts-text-secondary)}
+.feed-top,.feed-bot{display:flex;align-items:center;gap:10px;padding:9px 12px}
+.feed-top{border-bottom:1px solid var(--msts-border)}
+.feed-top .cam{color:var(--msts-heading);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.feed-top time{margin-left:auto;font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.live{display:inline-flex;align-items:center;gap:5px;padding:2px 7px;border-radius:3px;background:var(--msts-red-light);color:var(--msts-red-dark);font-weight:600;letter-spacing:.1em;font-size:10px}
+.live i{width:6px;height:6px;border-radius:50%;background:var(--msts-red)}
+.feed-view{position:relative;aspect-ratio:2/1;background:var(--msts-blue-light)}
+.feed-view svg{display:block;width:100%;height:100%}
+.feed-view .walker-s{animation:walks 9s ease-in-out infinite}@keyframes walks{0%,100%{transform:translateX(-40px)}50%{transform:translateX(56px)}}
+.feed-view .feed-scan{animation:fscan 3s linear infinite}@keyframes fscan{from{transform:translateY(0)}to{transform:translateY(120px)}}
+.det-tag{position:absolute;left:10px;top:10px;padding:3px 8px;border-radius:3px;background:var(--msts-green-dark);color:#fff;font-size:10px;font-weight:500;letter-spacing:.04em}
+.feed-bot{justify-content:space-between;border-top:1px solid var(--msts-border)}
+.feed-bot span{display:inline-flex;align-items:center;gap:6px}
+.feed-bot .ok{width:6px;height:6px;border-radius:50%;background:var(--msts-green)}
 
 /* ---------- Trust stats ---------- */
 .stats{background:var(--msts-white)}
@@ -277,13 +279,11 @@ nav{display:flex;gap:2px}.ni{position:relative}
   .about{gap:40px}
 }
 @media(max-width:900px){
-  .hero-in{min-height:0}
-  .slide{grid-template-columns:1fr;align-content:start;padding:112px 20px 104px;gap:28px}
-  .viz{max-width:360px;width:100%;margin:0 auto}
+  .hero-grid{grid-template-columns:1fr;min-height:0;padding-top:112px;padding-bottom:64px;gap:44px}
+  .cam-stage{margin:0 auto;max-width:520px}
   .txt p{font-size:16px;margin:16px 0 26px}
   .glow{width:480px;height:480px;right:-160px;top:auto;bottom:-60px;transform:none}
   .grid-bg{mask-image:radial-gradient(ellipse at 50% 75%,#000 10%,transparent 60%);-webkit-mask-image:radial-gradient(ellipse at 50% 75%,#000 10%,transparent 60%)}
-  .num{display:none}
   .fgrid{grid-template-columns:1fr 1fr}.fgrid>div:first-child{grid-column:1/-1}
   .sec{padding:72px 0}.cta{padding:64px 0}
   .cta-panel{padding:44px 28px}
@@ -307,13 +307,20 @@ nav{display:flex;gap:2px}.ni{position:relative}
   .brand .co{font-size:18px;letter-spacing:.02em;line-height:1.05}
   .brand .co-l2{display:block}
   .cert-empty{flex-direction:column;align-items:flex-start;padding:24px}
+  .svc{gap:8px 16px}.svc li{font-size:12.5px}
+  /* Phones: feed card sits under the scene instead of covering the camera */
+  .cam-stage{aspect-ratio:auto}
+  .cam-svg{position:relative;height:auto;aspect-ratio:560/480}
+  .feed{position:relative;right:auto;bottom:auto;width:92%;min-width:0;margin:-10% 0 0 auto;font-size:10.5px}
+  .feed-top,.feed-bot{padding:7px 9px;gap:7px}
+  .feed-bot span:last-child{display:none}
+  .chip{font-size:11px;padding:7px 11px;top:2%;left:0}
 }
-@media(max-width:360px){.wrap{padding:0 16px}.slide{padding-left:16px;padding-right:16px}.btn{padding:13px 16px}.brand .co{font-size:16.5px}}
+@media(max-width:360px){.wrap{padding:0 16px}.btn{padding:13px 16px}.brand .co{font-size:16.5px}}
 
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .grid-bg,.glow,.vis *{animation:none!important}
+  .grid-bg,.glow,.cam-svg *,.feed *{animation:none!important}
   .rv{opacity:1;transform:none}
-  .a0,.a1,.a2,.a3{opacity:1;animation:none!important}
-  .slide,.viz{transition-duration:.01s}
+  .a0,.a1,.a2,.a3,.a4,.a-viz{opacity:1;animation:none!important}
 }
