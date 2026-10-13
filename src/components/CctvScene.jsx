@@ -4,7 +4,7 @@ import {useEffect,useState} from 'react';
 // across a gate, with a live-feed monitoring card. MSTS logo colours only.
 const B='#61A5CC',BD='#1F6F99',BL='#EAF4FA',G='#60AB55',GD='#3B7D36',R='#ED603D',LINE='#C5D5DF',INK='#0E2F44';
 // Camera is drawn pointing left, then aimed down at the gate around its wall-joint pivot.
-const PIVOT='440 100',AIM=-32;
+const PIVOT='440 100',AIM=-37.5; // rest pose centres the view on the person (also the reduced-motion pose)
 
 function Clock(){
   const [t,setT]=useState(()=>new Date());
